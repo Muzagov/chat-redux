@@ -1,0 +1,343 @@
+/*Sidebar*/
+
+.App {
+  display: flex;
+}
+
+.start {
+  width: 270px;
+  height: 20px;
+  border-radius: 15px;
+  background-color: #f7f8f9;
+  text-align: center;
+  margin: auto;
+}
+
+.sidebar {
+  width: 305px;
+  height: 100vh;
+  background-color: #f7f8f9;
+  position: relative;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.commonContact {
+  display: flex;
+}
+
+.contact {
+  width: 260px;
+  height: 50px;
+  margin: auto;
+  padding: 20px 0 0 10px;
+  cursor: pointer;
+  display: flex;
+}
+
+.contact .date {
+  margin: 5px 30px 0 auto;
+}
+
+
+.contact:hover,
+.active {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 #d7dfda;
+}
+
+.input {
+  background-color: #f7f8f9;
+  width: 305px;
+  height: 80px;
+}
+
+.input .material-icons {
+  position: absolute;
+  top: 25px;
+  left: 17px;
+  opacity: 0.5;
+}
+
+.inputContact {
+  position: fixed;
+  top: 0;
+  width: 305px;
+  height: 80px;
+  background-color: #f7f8f9;
+}
+
+.search {
+  width: 255px;
+  height: 30px;
+  margin: 20px 20px 20px 8px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 0 #d7dfda;
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+.clear {
+  cursor: pointer;
+  background-position: center;
+  transition: background 0.7s;
+}
+.clear:hover {
+  background-color: #f8f5f5;
+  background-image: radial-gradient(circle, transparent 1%, #f8f5f5 1%);
+  background-size: 15000%;
+}
+.clear:active {
+  transition: background 0s;
+  background-color: gray;
+  background-size: 100%;
+}
+
+/*Chat*/
+
+.chat {
+  flex: 3;
+  position: relative;
+}
+
+.chat-start {
+  height: 90vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.inbox {
+  word-wrap: break-word;
+  word-break: break-word;
+  align-self: flex-start;
+  background-color: #f7f8f9;
+  border-radius: 15px 15px 15px 0;
+  padding: 15px;
+}
+
+.date {
+  font-size: .65em;
+  font-weight: 600;
+  text-align: right;
+}
+
+.InboxMessage {
+  margin: 10px 10px;
+  display: flex;
+  align-self: flex-start;
+  max-width: 70%;
+}
+
+.outbox {
+  word-wrap: break-word;
+  word-break: break-word;
+  color: white;
+  background-color: #633df8;
+  box-shadow: 0 1px 10px whitesmoke;
+  margin: 10px 10px;
+  border-radius: 15px 15px 0 15px;
+  padding: 15px;
+}
+
+.OutboxMessage {
+  align-self: flex-end;
+  max-width: 70%;
+}
+
+.infoMessage {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f7f8f9;
+  border-radius: 20px;
+  font-weight: bolder;
+  align-self: center;
+}
+
+.sendInput {
+  border-top: 1px solid lightgray;
+  display: flex;
+  bottom: 0;
+}
+
+.inputMessage {
+  outline: none;
+  border: none;
+  width: 90%;
+  margin: 15px 0 0 10px;
+}
+
+.micro .material-icons {
+  width: 5%;
+  margin: 15px 0 0 0;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.clip .material-icons {
+  width: 5%;
+  margin: 15px 0 0 0;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/*Header*/
+
+.headerChat {
+  position: relative;
+  border-bottom: 1px solid lightgray;
+  margin: 0 0 0 5px;
+  display: flex;
+}
+
+.fullName {
+  margin: auto;
+}
+
+.commonUpdating {
+  display: flex;
+  margin: auto;
+}
+
+.autorenew {
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+.settingsHeader .material-icons {
+  color: #a4b5cc;
+  font-size: 1.2em;
+  margin: auto;
+  cursor: pointer;
+}
+
+.searchMessage .material-icons {
+  color: #a4b5cc;
+  font-size: 1.2em;
+  margin: auto;
+  cursor: pointer;
+}
+
+/*Profile*/
+
+.profile-closed {
+  transition: 500ms;
+  transform-origin: right;
+  width: 0;
+  transform: scaleX(0);
+  background-color: whitesmoke;
+}
+
+.profile-open {
+  transition: 500ms;
+  transform-origin: right;
+  transform: scaleX(1);
+  overflow-y: scroll;
+  background-color: whitesmoke;
+  width: 20%;
+}
+
+.profile-open::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.commonProfile {
+  margin-top: 50px;
+}
+
+.communication .icons {
+  display: flex;
+  margin: 20px 0 0 55px;
+}
+
+.communication .material-icons {
+  color: #a7b8ce;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+.communication .name {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.avatar {
+  color: #fff;
+  border-radius: 50%;
+  background: linear-gradient(0deg, #74a4e8, #b0e7f8);
+  margin: auto;
+  text-align: center;
+  line-height: 80px;
+}
+
+.small {
+  min-width: 30px;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 30px 15px 0 20px;
+}
+
+.medium {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  line-height: 40px;
+  margin: 0 9px 0 10px;
+}
+
+.large {
+  font-size: 30px;
+  min-width: 80px;
+  width: 80px;
+  height: 80px;
+  margin: 50px auto 20px auto;
+}
+
+.name,
+.nameProfile {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.soc {
+  margin: 50px 0 10px 25px;
+}
+
+.icons-social {
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 #d7dfda;
+  color: #a7b8ce;
+  width: 200px;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px 0 10px 20px;
+}
+
+.instagram,
+.twitter,
+.facebook {
+  margin-top: 15px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
