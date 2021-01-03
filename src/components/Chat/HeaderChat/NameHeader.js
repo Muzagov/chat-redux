@@ -1,7 +1,12 @@
 import React from "react";
 
-function NameHeader({name}) {
-  return <div className="fullName">{name}</div>;
+function NameHeader({ name, online }) {
+  return (
+    <div className="nameHeader">
+      <div className="fullName">{name}</div>
+      {online && <div className="online" />}
+    </div>
+  );
 }
 
 export default NameHeader;

@@ -6,8 +6,7 @@ function MessageChat({ chat }) {
   if (chat.type === "text") {
     return <TextMessage chat={chat} />;
   }
-  return <InfoMessage content={chat.content}/>;
+  return <InfoMessage content={chat.content} />;
 }
-
 
 export default MessageChat;

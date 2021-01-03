@@ -2,6 +2,8 @@
 
 .App {
   display: flex;
+  height: 97.6vh;
+  overflow-y: hidden;
 }
 
 .start {
@@ -32,16 +34,38 @@
 .contact {
   width: 260px;
   height: 50px;
+  display: flex;
   margin: auto;
   padding: 20px 0 0 10px;
   cursor: pointer;
-  display: flex;
 }
 
 .contact .date {
   margin: 5px 30px 0 auto;
+  opacity: 0.5;
 }
 
+.skeletonContact {
+  padding: 15px 10px;
+  position: relative;
+  border-radius: 5px;
+  margin: 0 auto 0 auto;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatarContact {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.skeleton {
+  width: 80%;
+}
 
 .contact:hover,
 .active {
@@ -50,10 +74,25 @@
   box-shadow: 0 0 5px 0 #d7dfda;
 }
 
+.fullnameContact {
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+}
+
+.bottomMessage {
+  opacity: 0.4;
+  font-size: 0.9em;
+}
+
 .input {
   background-color: #f7f8f9;
   width: 305px;
   height: 80px;
+}
+
+.clear {
+  margin-left: 250px;
+  cursor: pointer;
 }
 
 .input .material-icons {
@@ -66,37 +105,25 @@
 .inputContact {
   position: fixed;
   top: 0;
+  z-index: 99;
   width: 305px;
   height: 80px;
   background-color: #f7f8f9;
 }
 
 .search {
-  width: 255px;
+  width: 250px;
   height: 30px;
-  margin: 20px 20px 20px 8px;
+  margin: 20px 20px 20px 11px;
   outline: none;
   border: none;
   border-radius: 3px;
   box-shadow: 0 0 5px 0 #d7dfda;
   cursor: pointer;
   padding-left: 30px;
-}
-
-.clear {
-  cursor: pointer;
-  background-position: center;
-  transition: background 0.7s;
-}
-.clear:hover {
-  background-color: #f8f5f5;
-  background-image: radial-gradient(circle, transparent 1%, #f8f5f5 1%);
-  background-size: 15000%;
-}
-.clear:active {
-  transition: background 0s;
-  background-color: gray;
-  background-size: 100%;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.6;
+  font-size: 1em;
 }
 
 /*Chat*/
@@ -107,7 +134,7 @@
 }
 
 .chat-start {
-  height: 90vh;
+  height: 86vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -120,13 +147,15 @@
   align-self: flex-start;
   background-color: #f7f8f9;
   border-radius: 15px 15px 15px 0;
-  padding: 15px;
+  margin: 10px 10px;
+  padding: 15px 15px 5px 15px;
 }
 
 .date {
-  font-size: .65em;
+  font-size: 0.65em;
   font-weight: 600;
-  text-align: right;
+  margin-left: 120px;
+  display: flex;
 }
 
 .InboxMessage {
@@ -144,7 +173,18 @@
   box-shadow: 0 1px 10px whitesmoke;
   margin: 10px 10px;
   border-radius: 15px 15px 0 15px;
-  padding: 15px;
+  padding: 15px 15px 10px 15px;
+  height: 25px;
+  font-size: 0.95em;
+}
+
+.outboxContent {
+  font-family: "Roboto", sans-serif;
+}
+
+.check .material-icons {
+  font-size: 15px;
+  margin: -3px 0 0 5px;
 }
 
 .OutboxMessage {
@@ -165,6 +205,16 @@
   border-top: 1px solid lightgray;
   display: flex;
   bottom: 0;
+  margin: 0 15px 0 15px;
+  line-height: 17px;
+  outline: none;
+  width: 95%;
+  padding: 0 15px;
+  align-self: center;
+  overflow-wrap: break-word;
+  resize: none;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .inputMessage {
@@ -172,38 +222,101 @@
   border: none;
   width: 90%;
   margin: 15px 0 0 10px;
+  resize: none;
 }
 
-.micro .material-icons {
+.micro {
   width: 5%;
-  margin: 15px 0 0 0;
+  margin: 10px 22px 0 0;
   cursor: pointer;
   opacity: 0.6;
 }
 
-.clip .material-icons {
+.clip {
   width: 5%;
-  margin: 15px 0 0 0;
+  margin: 10px 0 0 8px;
   cursor: pointer;
   opacity: 0.6;
+}
+
+.send {
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.sendIconButtons-enter {
+  transform: scale(0);
+}
+.sendIconButtons-enter-active {
+  transform: scale(1);
+  transition: 100ms;
+}
+.sendIconButtons-exit {
+  transform: scale(1);
+}
+.sendIconButtons-exit-active {
+  transform: scale(0);
+  transition: 100ms;
+}
+
+.click {
+  cursor: pointer;
+  background-position: center;
+  transition: background 0.7s;
+}
+
+.click:hover {
+  background-color: #f8f5f5;
+  background-image: radial-gradient(circle, transparent 1%, #f8f5f5 1%);
+  background-size: 15000%;
+}
+
+.click:active {
+  transition: background 0s;
+  background-color: gray;
+  background-size: 100%;
 }
 
 /*Header*/
 
 .headerChat {
+  height: 35px;
   position: relative;
   border-bottom: 1px solid lightgray;
-  margin: 0 0 0 5px;
+  margin: 0 15px 0 15px;
   display: flex;
 }
 
-.fullName {
-  margin: auto;
+.nameHeader {
+  display: flex;
+  position: relative;
+  font-weight: 600;
+  margin-left: 200px;
+}
+
+.nameHeader .online {
+  right: -15px;
+  top: 4px;
+}
+
+.inputHeader {
+  width: 150px;
 }
 
 .commonUpdating {
   display: flex;
   margin: auto;
+  width: 320px;
+  align-items: center;
+}
+
+.updating {
+  font-size: 1.1em;
+  font-family: "Roboto", sans-serif;
 }
 
 .autorenew {
@@ -218,6 +331,20 @@
   cursor: pointer;
 }
 
+.settingsHeader .click {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.searchMessage {
+  display: flex;
+  flex: 0.35;
+  padding-left: 10px;
+}
+
 .searchMessage .material-icons {
   color: #a4b5cc;
   font-size: 1.2em;
@@ -225,24 +352,48 @@
   cursor: pointer;
 }
 
+.searchMessage .click {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.search-close {
+  align-items: center;
+  transition: 0.5s;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.search-open {
+  align-items: center;
+  transition: 0.5s;
+  border: 1px solid #e3e3e3;
+  display: flex;
+  height: 25px;
+  align-self: center;
+  margin-bottom: 7px;
+  position: relative;
+}
+
+.search-open input,
+.search-close input {
+  border: none;
+  outline: none;
+}
+
+.searchMessage .icon {
+  margin-top: 3px;
+}
+
+.name-header {
+  margin: 5px auto 0 0;
+}
+
 /*Profile*/
-
-.profile-closed {
-  transition: 500ms;
-  transform-origin: right;
-  width: 0;
-  transform: scaleX(0);
-  background-color: whitesmoke;
-}
-
-.profile-open {
-  transition: 500ms;
-  transform-origin: right;
-  transform: scaleX(1);
-  overflow-y: scroll;
-  background-color: whitesmoke;
-  width: 20%;
-}
 
 .profile-open::-webkit-scrollbar {
   width: 0;
@@ -250,7 +401,8 @@
 }
 
 .commonProfile {
-  margin-top: 50px;
+  padding-top: 50px;
+  background-color: #f8f5f5;
 }
 
 .communication .icons {
@@ -262,7 +414,7 @@
   color: #a7b8ce;
   font-size: 1.2em;
   cursor: pointer;
-  margin-left: 25px;
+  margin-left: 20px;
 }
 
 .communication .name {
@@ -277,6 +429,17 @@
   margin: auto;
   text-align: center;
   line-height: 80px;
+  position: relative;
+}
+
+.online {
+  border: 1px solid white;
+  right: 0;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #12dd12;
+  border-radius: 50%;
 }
 
 .small {
@@ -305,39 +468,129 @@
   margin: 50px auto 20px auto;
 }
 
+.name {
+  opacity: 0.5;
+}
+
 .name,
 .nameProfile {
-  padding-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 
 .soc {
-  margin: 50px 0 10px 25px;
+  margin: 50px 0 10px 20px;
 }
 
 .icons-social {
   background-color: #fff;
   box-shadow: 0 0 5px 0 #d7dfda;
-  color: #a7b8ce;
-  width: 200px;
+  width: 220px;
   border-radius: 5px;
   margin: auto;
-  padding: 5px 0 10px 20px;
+  padding: 5px 0 10px 10px;
 }
 
-.instagram,
-.twitter,
-.facebook {
-  margin-top: 15px;
+.icons {
+  display: flex;
 }
+
+.icons i {
+  color: #a4b5cc;
+}
+
+.icons .click {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.iconsName {
+  margin: 15px 0 0 10px;
+}
+
+.fa-instagram,
+.fa-twitter,
+.fa-facebook {
+  margin-top: 15px;
+  width: 15px;
+  cursor: pointer;
+  display: flex;
+}
+
+.socialName {
+  margin-left: 10px;
+}
+
+.media {
+  margin: 40px 0 0 25px;
+}
+
+.file {
+  width: 220px;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  margin: 10px 0 0 25px;
+  padding: 10px 0 0 10px;
+  border-radius: 5px;
+}
+
+.fileName-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background: linear-gradient(0deg, #74a4e8, #b0e7f8);
+}
+
+.fileName {
+  margin: 10px 0 0 10px;
+}
+
+/*Анимации*/
+
+.commonProfile {
+  width: 250px;
+  background-color: #f7f8f9;
+  padding: 30px 25px 0 25px;
+  overflow: hidden;
+  transition: width 1s;
+}
+
+.common-block {
+  width: 250px;
+}
+
+.exit {
+  width: 0;
+}
+
+.enter {
+  width: 0;
+}
+
+.enter-active {
+  width: 250px;
+}
+
+/*Кейфрамес*/
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-

@@ -20,6 +20,21 @@ export default function chat(state = initialState, action) {
         chats: action.payload,
       };
 
+    case "send_messages_start":
+      return {
+        ...state,
+        chats: [...state.chats, action.payload],
+      };
+
+    case "send_messages_success":
+      return {
+        ...state,
+        chats: state.chats.map((chat) => {
+          return {
+            ...chat,
+          };
+        }),
+      };
     default:
       return state;
   }

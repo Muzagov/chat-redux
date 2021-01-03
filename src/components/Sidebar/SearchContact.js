@@ -3,32 +3,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadSearchContact } from "../../redux/actions/application";
 
 function SearchContact() {
-  const searchContact = useSelector((state) => state.application.searchContactValue);
   const dispatch = useDispatch();
+
+  const searchValue = useSelector(
+    (state) => state.application.searchContactValue
+  );
 
   const handleChange = (e) => {
     dispatch(loadSearchContact(e.target.value));
   };
 
-  const clearSearch = () => {
+  const clearSearchInput = () => {
     dispatch(loadSearchContact(""));
   };
 
   return (
     <div className="input">
       <div className="inputContact">
-        {searchContact.length !== 0 && (
-          <i onClick={clearSearch} className="material-icons clear">
-            clear
-          </i>
-        )}
         <input
           className="search"
           placeholder="Search contact"
-          value={searchContact}
+          value={searchValue}
           onChange={handleChange}
         />
         <i className="material-icons">search</i>
+        {searchValue.length !== 0 && (
+            <i onClick={clearSearchInput} className="material-icons clear">
+              clear
+            </i>
+        )}
       </div>
     </div>
   );
