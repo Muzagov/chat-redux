@@ -26,9 +26,7 @@ function SearchMessage() {
   return (
     <div className={searchMessage ? "search-open" : "search-close"}>
       <div className="icon" onClick={searchOpenToggle}>
-        <i className="material-icons click">
-          search
-        </i>
+        <i className="material-icons click">search</i>
       </div>
       <input
         type="text"

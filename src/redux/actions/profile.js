@@ -1,4 +1,4 @@
-export function loadMyId() {
+export function loadMyProfile() {
   return (dispatch) => {
     dispatch({ type: "load_profile_start" });
     fetch("https://api.intocode.ru:8001/api/profile")

@@ -12,7 +12,7 @@ export function loadChat(myId, contactId) {
           type: "load_chat_success",
           payload: json,
         });
-        scrollChatDown()
+        scrollChatDown();
       });
   };
 }
@@ -41,7 +41,7 @@ export function sendMessage(contactId, myId, content) {
         dispatch({
           type: "send_messages_success",
         });
-        scrollChatDown()
+        scrollChatDown();
       });
   };
 }

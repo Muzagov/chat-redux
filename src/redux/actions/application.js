@@ -1,19 +1,13 @@
 // Открытие профиля контакта
 
 export function loadProfileToggle() {
-  return (dispatch) => {
-    dispatch({
-      type: "load_application_success",
-    });
-  };
+  return { type: "load_application_success" };
 }
 
 // Поиск контакта
 
 export function loadSearchContact(value) {
-  return (dispatch) => {
-    dispatch({ type: "load_search_contact", payload: value });
-  };
+  return { type: "load_search_contact", payload: value };
 }
 
 // Открытие и Закрытие поиска сообщений
@@ -25,7 +19,5 @@ export function loadSearchOpened() {
 // Поиск сообщений
 
 export function loadSearchMessage(value) {
-  return (dispatch) => {
-    dispatch({ type: "load_search_message", payload: value });
-  };
+  return { type: "load_search_message", payload: value };
 }

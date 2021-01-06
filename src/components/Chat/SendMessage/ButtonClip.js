@@ -5,6 +5,7 @@ function ButtonClip(props) {
     <div className="send click">
       <div className="material-icons clip">attach_file</div>
     </div>
-  );}
+  );
+}
 
 export default ButtonClip;

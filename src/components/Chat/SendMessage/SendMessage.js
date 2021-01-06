@@ -7,19 +7,21 @@ import { sendMessage } from "../../../redux/actions/chat";
 import { useParams } from "react-router-dom";
 
 function SendMessage() {
-  const dispatch = useDispatch();
-  const myId = useSelector((state) => state.profile.myId);
-  const opened = useParams().id;
-
   const [content, setContent] = useState("");
 
+  const dispatch = useDispatch();
+
+  const myId = useSelector((state) => state.profile.myId);
+
+  const opened = useParams().id;
+
   const handleChange = (e) => {
-      setContent(e.target.value);
+    setContent(e.target.value);
   };
 
   const sentMessage = () => {
-      dispatch(sendMessage(opened, myId, content))
-  }
+    dispatch(sendMessage(opened, myId, content));
+  };
 
   return (
     <div className="sendInput">

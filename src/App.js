@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Chat from "./components/Chat/Messages/Chat";
+import Chat from "./components/Chat/Chat";
 import { useDispatch, useSelector } from "react-redux";
-import { loadMyId } from "./redux/actions/profile";
+import { loadMyProfile } from "./redux/actions/profile";
 import Profile from "./components/Profile/Profile";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -12,7 +11,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadMyId());
+    dispatch(loadMyProfile());
   }, [dispatch]);
 
   return (

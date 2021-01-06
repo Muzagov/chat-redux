@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import MessageChat from "./MessageChat";
-import SendMessage from "../SendMessage/SendMessage";
-import Header from "../HeaderChat/Header";
+import ChatMessages from "./Messages/ChatMessages";
+import SendMessage from "./SendMessage/SendMessage";
+import Header from "./HeaderChat/Header";
 import { useParams } from "react-router-dom";
-import { loadChat } from "../../../redux/actions/chat";
+import { loadChat } from "../../redux/actions/chat";
+import Messages from "./Messages/Messages";
 
 function Chat() {
-  const loading = useSelector((state) => state.chat.loading);
   const opened = useParams().id;
+
   const dispatch = useDispatch();
+
   const myId = useSelector((state) => state.profile.myId);
-  const chats = useSelector(state => state.chat.chats)
 
   useEffect(() => {
     if (opened) {
@@ -30,12 +31,7 @@ function Chat() {
   return (
     <div className="chat">
       <Header />
-      <div className="chat-start" id="chat">
-        {!loading &&
-          chats.map((chat, index) => {
-            return <MessageChat key={index} chat={chat} />;
-          })}
-      </div>
+      <Messages />
       <SendMessage />
     </div>
   );

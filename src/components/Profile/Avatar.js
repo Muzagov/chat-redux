@@ -1,8 +1,8 @@
 import React from "react";
-import classNames from "classnames";
+import cx from "classnames";
 
 function Avatar({ name, size, online }) {
-  const switchClass = classNames(
+  const switchClass = cx(
     "avatar",
     { small: size === "small" },
     { medium: size === "medium" },

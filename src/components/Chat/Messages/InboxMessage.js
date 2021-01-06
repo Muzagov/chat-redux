@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 function InboxMessage({ chat }) {
   const opened = useParams().id;
 
-
   const { fullname } = useSelector((state) =>
     state.contacts.contacts.find((contact) => {
       return opened === contact._id;
